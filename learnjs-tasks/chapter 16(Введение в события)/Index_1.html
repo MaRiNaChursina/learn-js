@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    button {
+      border: none;
+      background-color: #fff;
+      cursor: pointer;
+      position: relative;
+      padding-left: 18px;
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+
+    button.closed::before {
+      content: '▶';
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: invert(46%) sepia(90%) saturate(878%) hue-rotate(48deg) brightness(92%) contrast(98%);      
+    }
+
+    button.open::before {
+      content: '▼';
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: invert(46%) sepia(90%) saturate(878%) hue-rotate(48deg) brightness(92%) contrast(98%);
+    }
+
+    ul {
+      margin-top: 0;
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    li {
+      font-size: 16px;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="button" class="closed">
+     Сладости (нажми меня)!
+  </button>
+  <ul id="list" class="hide">
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+
+  <script>
+  function listHandler() {
+    button.addEventListener('click', () => {
+      button.classList.toggle('open');
+      button.classList.toggle('closed');
+      list.classList.toggle('hide');
+  });
+  }
+  listHandler();
+  </script>
+</body>
+
+</html>
